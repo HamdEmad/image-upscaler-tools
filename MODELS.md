@@ -9,7 +9,7 @@ This document provides a comprehensive inventory of all neural model checkpoints
 | Model Key | Filename | Size | SHA-256 Checksum | License | Commercial Use |
 | :--- | :--- | :--- | :--- | :--- | :--- |
 | `span` | `4xPurePhoto-span.pth` | 9,016,490 B | `c689eec59771ed3eaffc10eea933c44fdb9131f83251c51c5bab4cae7c4d3bf2` | Apache 2.0 | **Yes** |
-| `hat` | `HAT_SRx4.pth` | 85,137,601 B | `4ee053c42461187846dc0e93aa5abd34591c0725a8e044a59000e92ee215e833` | CC BY-NC-SA 4.0 | **No (Research only)** |
+| `hat` | `HAT_SRx4.pth` | 85,137,601 B | `02dabea478aa5902a7170ad89350124e691bd89c91356f24b3267022622dc030` | CC BY-NC-SA 4.0 | **No (Research only)** |
 | `realesrgan` | `RealESRGAN_x4plus.pth` | 67,040,989 B | `4fa0d38905f75ac06eb49a7951b426670021be3018265fd191d2125df9d682f1` | BSD 3-Clause | **Yes** |
 | `realesrnet` | `RealESRNet_x4plus.pth` | 67,040,989 B | `a820b9bde89a874d7599d545567308ce6c128fc8754a53208eda016d40aa81df` | BSD 3-Clause | **Yes** |
 | `ultrasharp` | `4x-UltraSharp.pth` | 66,961,958 B | `a5812231fc936b42af08a5edba784195495d303d5b3248c24489ef0c4021fe01` | Community / CC-BY-NC | **No (Attribution / Non-commercial)** |
@@ -31,7 +31,7 @@ This document provides a comprehensive inventory of all neural model checkpoints
 - **Task**: 4x Super-Resolution
 - **Architecture**: Hybrid Transformer combining window self-attention and channel attention (CVPR 2023)
 - **Primary Source**: [Hugging Face jaideepsingh/upscale_models](https://huggingface.co/jaideepsingh/upscale_models/resolve/main/HAT/HAT_SRx4.pth)
-- **Mirror**: [Hugging Face Actus/HAT](https://huggingface.co/Actus/HAT/resolve/main/HAT_SRx4.pth)
+- **Mirror**: [Hugging Face Actus/HAT](https://huggingface.co/jaideepsingh/upscale_models/resolve/main/HAT/HAT_SRx4.pth)
 - **License**: Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International (CC BY-NC-SA 4.0)
 - **Characteristics**: State-of-the-art detail reconstruction. High compute cost (~20-30s on CPU).
 

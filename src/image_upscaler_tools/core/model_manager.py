@@ -22,10 +22,10 @@ MODEL_REGISTRY_INFO: Dict[str, Dict] = {
         "filename": "HAT_SRx4.pth",
         "alt_filenames": ["hat_srx4.pth"],
         "urls": [
-            "https://huggingface.co/jaideepsingh/upscale_models/resolve/main/HAT/HAT_SRx4.pth",
-            "https://huggingface.co/Actus/HAT/resolve/main/HAT_SRx4.pth"
+            "https://huggingface.co/jaideepsingh/upscale_models/resolve/main/HAT/HAT_SRx4.pth"
         ],
-        "sha256": "4ee053c42461187846dc0e93aa5abd34591c0725a8e044a59000e92ee215e833",
+        "sha256": "02dabea478aa5902a7170ad89350124e691bd89c91356f24b3267022622dc030",
+        "alt_sha256": ["4ee053c42461187846dc0e93aa5abd34591c0725a8e044a59000e92ee215e833"],
         "size": 85137601,
         "description": "HAT 4x (Hybrid Attention Transformer)",
         "license": "CC BY-NC-SA 4.0"
@@ -122,6 +122,7 @@ def download_file(
     urls: List[str],
     dest_path: Path,
     expected_sha256: Optional[str] = None,
+    alt_sha256: Optional[List[str]] = None,
     desc: str = "Downloading model"
 ) -> None:
     """Download a file with fallback across multiple mirror URLs and verify checksum."""
@@ -148,7 +149,8 @@ def download_file(
 
             if expected_sha256:
                 actual_sha = compute_sha256(temp_path)
-                if actual_sha.lower() != expected_sha256.lower():
+                valid_hashes = [expected_sha256.lower()] + [a.lower() for a in (alt_sha256 or [])]
+                if actual_sha.lower() not in valid_hashes:
                     temp_path.unlink()
                     raise WeightsVerificationError(
                         f"Checksum mismatch for {dest_path.name}: expected {expected_sha256}, got {actual_sha}"
@@ -232,7 +234,8 @@ class ModelManager:
                 if p.exists() and p.is_file() and p.stat().st_size > 1024:
                     if verify_checksum and expected_sha:
                         actual = compute_sha256(p)
-                        if actual.lower() != expected_sha.lower():
+                        valid_hashes = [expected_sha.lower()] + [a.lower() for a in info.get("alt_sha256", [])]
+                        if actual.lower() not in valid_hashes:
                             print(f"Warning: Corrupt weights found at {p}. Re-downloading...")
                             continue
                     return str(p.resolve())
@@ -251,6 +254,7 @@ class ModelManager:
             urls=urls,
             dest_path=target_path,
             expected_sha256=expected_sha,
+            alt_sha256=info.get("alt_sha256", []),
             desc=info.get("description", key)
         )
         return str(target_path.resolve())
