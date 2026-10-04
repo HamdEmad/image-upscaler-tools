@@ -33,20 +33,23 @@ Built for high-throughput e-commerce catalogs, industrial image pipelines, and r
 
 ## Installation
 
+### 1. Install Directly from GitHub via Pip
+
 ```bash
-pip install image-upscaler-tools
+pip install git+https://github.com/HamdEmad/image-upscaler-tools.git
 ```
 
-For editable local development:
+### 2. Install from Local Source (Editable Development)
+
 ```bash
 git clone https://github.com/HamdEmad/image-upscaler-tools.git
 cd image-upscaler-tools
 pip install -e .
 ```
 
-*Optional acceleration (for accelerated Adaptive Median filtering):*
+*With optional acceleration (for accelerated Adaptive Median filtering via Numba):*
 ```bash
-pip install "image-upscaler-tools[fast]"  # installs numba
+pip install -e ".[fast]"
 ```
 
 ---
