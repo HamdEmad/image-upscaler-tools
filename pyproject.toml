@@ -1,0 +1,59 @@
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "image-upscaler-tools"
+version = "0.2.0"
+description = "A unified, composable Python toolkit for image denoising (11 methods) and super-resolution upscaling (7 engines)."
+readme = "README.md"
+authors = [
+  { name = "HamdEmad", email = "hamdy1721998@gmail.com" }
+]
+license = { text = "MIT" }
+requires-python = ">=3.9"
+classifiers = [
+  "Development Status :: 4 - Beta",
+  "Intended Audience :: Developers",
+  "Intended Audience :: Science/Research",
+  "Topic :: Scientific/Engineering :: Image Processing",
+  "Topic :: Multimedia :: Graphics",
+  "Programming Language :: Python :: 3",
+  "Programming Language :: Python :: 3.9",
+  "Programming Language :: Python :: 3.10",
+  "Programming Language :: Python :: 3.11",
+  "License :: OSI Approved :: MIT License",
+  "Operating System :: OS Independent"
+]
+dependencies = [
+  "torch>=2.0.0",
+  "torchvision>=0.15.0",
+  "spandrel>=0.3.0",
+  "pillow>=9.0.0",
+  "opencv-python-headless>=4.5.0",
+  "numpy>=1.20.0",
+  "scikit-image>=0.20.0",
+  "pywavelets>=1.4.0",
+  "requests>=2.25.0",
+  "tqdm>=4.60.0"
+]
+
+[project.optional-dependencies]
+fast = [
+  "numba>=0.56.0"
+]
+dev = [
+  "pytest>=7.0.0"
+]
+
+[project.scripts]
+image-upscaler = "image_upscaler_tools.cli:main"
+upscale = "image_upscaler_tools.cli:main"
+
+[project.urls]
+Homepage = "https://github.com/HamdEmad/image-upscaler-tools"
+Repository = "https://github.com/HamdEmad/image-upscaler-tools.git"
+Issues = "https://github.com/HamdEmad/image-upscaler-tools/issues"
+
+[tool.setuptools.packages.find]
+where = ["src"]

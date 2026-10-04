@@ -1,0 +1,44 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Distribution / packaging
+dist/
+build/
+*.egg-info/
+.eggs/
+
+# Virtual environments
+.venv/
+venv/
+env/
+
+# Pytest / Cache
+.pytest_cache/
+.coverage
+htmlcov/
+
+# Model weights (Do not commit binary checkpoints to git)
+*.pth
+*.pt
+*.pb
+*.bin
+*.onnx
+models/
+weights/
+
+# Local testing and outputs
+outputs/
+output/
+*.jpg
+*.jpeg
+*.png
+!assets/*.jpg
+!assets/*.png
+
+# IDEs
+.vscode/
+.idea/
+*.swp
+*.swo
