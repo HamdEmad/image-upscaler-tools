@@ -20,6 +20,37 @@ _PRESET_DEFINITIONS: Dict[str, List[Tuple[str, Dict[str, Any]]]] = {
     "impulse_clean_fast": [
         ("adaptive_median", {"s_max": 7}),
         ("span", {})
+    ],
+    # Anime & Face Illustration Presets
+    "anime_crisp": [
+        ("scunet", {}),
+        ("ultrasharp", {}),
+        ("bilateral", {"d": 3, "sigma_color": 15, "sigma_space": 15})
+    ],
+    "anime_smooth": [
+        ("scunet", {}),
+        ("realesrgan", {}),
+        ("bilateral", {"d": 3, "sigma_color": 15, "sigma_space": 15})
+    ],
+    "anime_psnr": [
+        ("scunet", {}),
+        ("realesrnet", {})
+    ],
+    # Hardware, PCB & Macro Photo Presets
+    "hardware_text": [
+        ("scunet", {}),
+        ("hat", {}),
+        ("bilateral", {"d": 3, "sigma_color": 15, "sigma_space": 15})
+    ],
+    "hardware_clean": [
+        ("scunet", {}),
+        ("span", {}),
+        ("bilateral", {"d": 3, "sigma_color": 15, "sigma_space": 15})
+    ],
+    "hardware_fast": [
+        ("wavelet", {"method": "BayesShrink", "mode": "soft"}),
+        ("span", {}),
+        ("bilateral", {"d": 3, "sigma_color": 15, "sigma_space": 15})
     ]
 }
 
